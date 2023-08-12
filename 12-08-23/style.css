@@ -1,0 +1,54 @@
+#products{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}
+
+#card{
+    width: 30%;
+    border: 1px solid rgba(0,0,0,0.4);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
+}
+
+#image{
+    width: 100%;
+    height: 400px;
+}
+
+#image img{
+    width: 90%;
+    height: 90%;
+    padding: 20px;
+}
+
+#searchDiv{
+    text-align: center;
+    margin: 25px 0;
+}
+ #search{
+    padding: 10px;
+    font-size: 18px;
+ }
+
+#info{
+    padding: 20px;
+}
+
+#title{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#price{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+#amount{
+    color: rgb(0, 222, 74);
+}
