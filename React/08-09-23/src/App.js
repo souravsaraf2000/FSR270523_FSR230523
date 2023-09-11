@@ -6,7 +6,7 @@ class App extends React.Component {
   render() { 
     return (
       <div>
-        <h1>User Deck</h1>
+        <h1 style={{textAlign: 'center'}}>User Deck</h1>
         <UserDeck/>
       </div>
     );

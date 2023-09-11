@@ -2,14 +2,9 @@ import React from 'react'
 import styles from './UserCard.module.css'
 
 class UserCard extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            userData : this.props.userData
-        }
-    }
+
     render() {
-        const {userData} = this.state;
+        const {userData} = this.props;
         return (
             <div className={styles.container}>
                 <div className={styles.imageDiv}>

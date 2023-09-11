@@ -4,3 +4,16 @@
     width: 80%;
     margin: 0 auto;
 }
+
+.searchDiv{
+    text-align: center;
+    padding: 20px 0;
+}
+.search{
+    font-size: 18px;
+    font-weight: 600;
+    padding: 15px;
+    border-radius: 30px;
+    outline: none;
+    border: 3px solid rgba(0,0,0,0.2);
+}
