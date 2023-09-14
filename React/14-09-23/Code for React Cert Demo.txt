@@ -1,0 +1,81 @@
+------- Orders Page -----------
+
+getOrders = () => {
+    // Write your code here
+    const data = ORDERS_LIST_DATA
+    this.setState({
+        orders: data,
+        displayOrders:data,
+        count: data.length
+    })
+  };
+
+  handleFilterCheck = (e) => {
+    // Write your code here
+    const filters = this.state.activeFilters;
+    filters[e.target.name] = e.target.checked;
+    
+    let orders = this.state.orders;
+    const displayOrds = orders.filter((order)=>this.state.activeFilters[order.orderStatus])
+    this.setState({
+        displayOrders: displayOrds,
+        count: displayOrds.length,
+        activeFilters: filters
+    })
+  };
+
+---------- Products Page ----------
+
+getProducts = () => {
+    // Write your code here
+    const data = PRODUCTS_LIST_DATA
+    this.setState({
+        products: data,
+        displayProducts: data,
+        count: data.length
+    })
+  };
+
+  handleFilterCheck = (e) => {
+    // Write your code here
+    const filters = this.state.activeFilters;
+    filters[e.target.name] = e.target.checked;
+
+    let products = this.state.products;
+
+    if(filters["expired"] === true && filters["low_stock"] === true){
+        this.setState({
+            displayProducts: products,
+            count: products.length
+        })
+        return
+    }
+    const dispProds = []
+    for(const product of products){
+        let {expiryDate, stock} = product
+        if(filters["low_stock"] && filters["expired"]===false){
+            const now = new Date()
+            expiryDate = new Date(expiryDate)
+            if(expiryDate > now){
+                dispProds.push(product)
+            }
+        }
+        if(filters["expired"] && filters["low_stock"]===false){
+            if(stock > 100){
+                dispProds.push(product)
+            }
+        }
+        if(filters["low_stock"]===false && filters["expired"]===false){
+            const now = new Date()
+            expiryDate = new Date(expiryDate)
+            if(expiryDate > now && stock > 100){
+                dispProds.push(product)
+            }
+        }
+    }
+    this.setState({
+        displayProducts: dispProds,
+        count: dispProds.length,
+        activeFilters: filters
+    })
+  };
